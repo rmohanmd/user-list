@@ -9,9 +9,21 @@ function App() {
     { id: 3, name: "J U", age: 34 },
   ]);
 
+  const addUserHandler = (name, age) => {
+    setUserList((prevUsers) => {
+      const updatedUsers = [...prevUsers];
+      updatedUsers.unshift({
+        id: Math.random().toString(),
+        name: name,
+        age: age,
+      });
+      return updatedUsers;
+    });
+  };
+
   return (
     <div>
-      <Input />
+      <Input addUser={addUserHandler} />
       <section>
         <List list={userList} />
       </section>

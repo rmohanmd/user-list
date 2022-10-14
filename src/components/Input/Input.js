@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 
-const Input = () => {
+const Input = (props) => {
   const [newName, setNewName] = useState("");
-  const [newAge, setNewAge] = useState(0);
+  const [newAge, setNewAge] = useState("");
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    console.log("testing");
+    props.addUser(newName, newAge);
+    setNewName("");
+    setNewAge("");
   };
 
   const nameInputHandler = (event) => {
     setNewName(event.target.value);
-    console.log(newName);
   };
 
   const ageInputHandler = (event) => {
