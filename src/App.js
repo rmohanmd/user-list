@@ -15,7 +15,7 @@ function App() {
       updatedUsers.unshift({
         id: Math.random().toString(),
         name: name,
-        age: age,
+        age: parseInt(age, 10),
       });
       return updatedUsers;
     });
