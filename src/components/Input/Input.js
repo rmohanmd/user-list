@@ -1,14 +1,22 @@
 import React, { useState } from "react";
+import Modal from (../Model/Modal);
 
 const Input = (props) => {
   const [newName, setNewName] = useState("");
-  const [newAge, setNewAge] = useState("");
+  const [newAge, setNewAge] = useState(0);
+  const [isNameValid, setIsNameValid] = useState(true);
+  const [isAgeValid, setIsAgeValid] = useState(true);
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
+    if (newName.trim().length === 0) {
+      setIsNameValid(false);
+      return;
+    }
+
     props.addUser(newName, newAge);
     setNewName("");
-    setNewAge("");
+    setNewAge(0);
   };
 
   const nameInputHandler = (event) => {
@@ -20,6 +28,7 @@ const Input = (props) => {
   };
 
   return (
+    <Modal />
     <form onSubmit={onSubmitHandler}>
       <label>Name</label>
       <input
