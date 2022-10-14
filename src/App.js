@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Input from "./components/Input/Input";
 import List from "./components/List/List";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <div>
+      <Input />
       <section>
         <List list={userList} />
       </section>
