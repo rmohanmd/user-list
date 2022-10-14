@@ -4,13 +4,20 @@ import Modal from "../Modal/Modal";
 const Input = (props) => {
   const [newName, setNewName] = useState("");
   const [newAge, setNewAge] = useState(0);
-  const [isNameValid, setIsNameValid] = useState(true);
-  const [isAgeValid, setIsAgeValid] = useState(true);
+  const [isValid, setIsValid] = useState(true);
+  const [messageContent, setMessageContent] = useState("");
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    if (newName.trim().length === 0) {
-      setIsNameValid(false);
+    if (newName.trim().length === 0 || newAge.length === 0) {
+      setMessageContent("Please enter a valid name and age (non-empty values)");
+      setIsValid(false);
+
+      return;
+    } else if (newAge < 1) {
+      setMessageContent("Age must be > 0");
+      setIsValid(false);
+
       return;
     }
 
@@ -19,21 +26,24 @@ const Input = (props) => {
     setNewAge(0);
   };
 
+  const modalClose = () => {
+    setIsValid(true);
+  };
+
   const nameInputHandler = (event) => {
     setNewName(event.target.value);
   };
-
   const ageInputHandler = (event) => {
     setNewAge(event.target.value);
   };
 
   return (
     <section>
-      <Modal />
+      <Modal content={messageContent} valid={isValid} modalClose={modalClose} />
       <form onSubmit={onSubmitHandler}>
         <label>Name</label>
         <input
-          value={newName}
+          // value={newName}
           type="text"
           onChange={nameInputHandler}
           minLength="1"
@@ -41,10 +51,9 @@ const Input = (props) => {
         <br />
         <label>Age</label>
         <input
-          value={newAge}
+          // value={newAge}
           type="number"
           onChange={ageInputHandler}
-          min="0"
         />
         <button type="submit">Submit</button>
       </form>

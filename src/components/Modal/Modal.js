@@ -3,10 +3,18 @@ import "./Modal.css";
 
 const Modal = (props) => {
   return (
-    <div class="modal-overlay">
-      <div class="modal-box">
-        etsting
-        <button>Close</button>
+    <div
+      className={`modal-overlay ${!props.valid ? "show" : ""}`}
+      onClick={props.modalClose}
+    >
+      <div className="modal-box">
+        <div className="modal-title">Invalid Input</div>
+        <div className="modal-content">
+          {props.content}
+          <button className="modal-button" onClick={props.modalClose}>
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );

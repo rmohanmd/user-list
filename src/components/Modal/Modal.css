@@ -1,4 +1,5 @@
 .modal-overlay {
+  display: none;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -8,9 +9,32 @@
   z-index: 99;
 }
 
+.show {
+  display: block;
+}
 .modal-box {
   background: white;
   margin: 15% auto;
-  padding: 20px;
-  width: 60%;
+  width: 40%;
+  height: 30%;
+  border-radius: 25px;
+}
+
+.modal-title {
+  background-color: purple;
+  color: white;
+  height: 30%;
+  padding: 0px;
+  border-radius: 25px 25px 0px 0px;
+}
+
+.modal-content {
+  background-color: white;
+  color: black;
+  text-align: center;
+  height: 70%;
+}
+
+.modal-button {
+  text-align: right;
 }
