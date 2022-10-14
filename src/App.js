@@ -1,21 +1,18 @@
-import React from "react";
-
-let userList = [
-  { id: 1, name: "Ro Mo", age: 35 },
-  { id: 2, name: "Ry Si", age: 33 },
-  { id: 3, name: "J U", age: 34 },
-];
+import React, { useState } from "react";
+import List from "./components/List/List";
 
 function App() {
+  const [userList, setUserList] = useState([
+    { id: 1, name: "Ro Mo", age: 35 },
+    { id: 2, name: "Ry Si", age: 33 },
+    { id: 3, name: "J U", age: 34 },
+  ]);
+
   return (
     <div>
-      <ul>
-        {userList.map((user) => (
-          <li key={user.id} id={user.id}>
-            {user.name} {user.age}
-          </li>
-        ))}
-      </ul>
+      <section>
+        <List list={userList} />
+      </section>
     </div>
   );
 }
