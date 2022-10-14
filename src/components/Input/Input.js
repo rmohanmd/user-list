@@ -41,16 +41,18 @@ const Input = (props) => {
     <section>
       <Modal content={messageContent} valid={isValid} modalClose={modalClose} />
       <form onSubmit={onSubmitHandler}>
-        <label>Name</label>
+        <label htmlFor="username">Username</label>
         <input
+          id="username"
           // value={newName}
           type="text"
           onChange={nameInputHandler}
           minLength="1"
         />
         <br />
-        <label>Age</label>
+        <label htmlFor="age">Age</label>
         <input
+          id="age"
           // value={newAge}
           type="number"
           onChange={ageInputHandler}
