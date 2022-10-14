@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from (../Model/Modal);
+import Modal from "../Modal/Modal";
 
 const Input = (props) => {
   const [newName, setNewName] = useState("");
@@ -28,20 +28,27 @@ const Input = (props) => {
   };
 
   return (
-    <Modal />
-    <form onSubmit={onSubmitHandler}>
-      <label>Name</label>
-      <input
-        value={newName}
-        type="text"
-        onChange={nameInputHandler}
-        minLength="1"
-      />
-      <br />
-      <label>Age</label>
-      <input value={newAge} type="number" onChange={ageInputHandler} min="0" />
-      <button type="submit">Submit</button>
-    </form>
+    <section>
+      <Modal />
+      <form onSubmit={onSubmitHandler}>
+        <label>Name</label>
+        <input
+          value={newName}
+          type="text"
+          onChange={nameInputHandler}
+          minLength="1"
+        />
+        <br />
+        <label>Age</label>
+        <input
+          value={newAge}
+          type="number"
+          onChange={ageInputHandler}
+          min="0"
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </section>
   );
 };
 
