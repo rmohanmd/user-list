@@ -1,22 +1,24 @@
 import React from "react";
+import Card from "../Utils/Card";
 import Button from "../Utils/Button";
-import "./Modal.css";
+import styles from "./Modal.module.css";
+// import "./Modal.css";
 
 const Modal = (props) => {
   return (
-    <div
-      className={`modal-overlay ${!props.valid ? "show" : ""}`}
-      onClick={props.modalClose}
-    >
-      <div className="modal-box">
-        <div className="modal-title">Invalid Input</div>
-        <div className="modal-content">
-          {props.content}
-          <Button className="modal-button" onClick={props.modalClose}>
-            Close
-          </Button>
+    <div>
+      <div className={styles.backdrop} onClick={props.modalClose}></div>
+      <Card className={styles.modal}>
+        <header className={styles.header}>
+          <h2>{props.title}</h2>
+        </header>
+        <div className={styles.content}>
+          <p>{props.message}</p>
         </div>
-      </div>
+        <footer className={styles.actions}>
+          <Button onClick={props.modalClose}>Okay</Button>
+        </footer>
+      </Card>
     </div>
   );
 };
