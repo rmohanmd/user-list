@@ -18,12 +18,11 @@ function App() {
       ];
     });
   };
-
   return (
-    <div>
+    <React.Fragment>
       <Input addUser={addUserHandler} />
       <List list={userList} />
-    </div>
+    </React.Fragment>
   );
 }
 

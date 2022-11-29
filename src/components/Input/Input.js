@@ -44,7 +44,7 @@ const Input = (props) => {
   };
 
   return (
-    <section>
+    <React.Fragment>
       {error && (
         <Modal
           title={error.title}
@@ -73,7 +73,7 @@ const Input = (props) => {
           <Button type="submit">Submit</Button>
         </form>
       </Card>
-    </section>
+    </React.Fragment>
   );
 };
 
