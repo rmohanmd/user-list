@@ -6,18 +6,16 @@ function App() {
   const [userList, setUserList] = useState([
     { id: 1, name: "Ro Mo", age: 35 },
     { id: 2, name: "Ry Si", age: 33 },
-    { id: 3, name: "J U", age: 34 },
+    { id: 3, name: "Ja Un", age: 34 },
+    { id: 4, name: "Na Br", age: 21 },
   ]);
 
   const addUserHandler = (name, age) => {
     setUserList((prevUsers) => {
-      const updatedUsers = [...prevUsers];
-      updatedUsers.unshift({
-        id: Math.random().toString(),
-        name: name,
-        age: parseInt(age, 10),
-      });
-      return updatedUsers;
+      return [
+        ...prevUsers,
+        { id: Math.random().toString(), name: name, age: age },
+      ];
     });
   };
 
