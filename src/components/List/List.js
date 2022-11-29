@@ -1,15 +1,18 @@
 import React from "react";
-import ListItem from "./ListItem/ListItem";
+import Card from "../Utils/Card";
+import styles from "./List.module.css";
 
 const List = (props) => {
   return (
-    <ul>
-      {props.list.map((user) => (
-        <ListItem key={user.id} id={user.id}>
-          {user.name} {user.age}
-        </ListItem>
-      ))}
-    </ul>
+    <Card className={styles.lists}>
+      <ul>
+        {props.list.map((user) => (
+          <li key={user.id}>
+            {user.name} ({user.age} years old)
+          </li>
+        ))}
+      </ul>
+    </Card>
   );
 };
 

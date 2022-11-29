@@ -22,9 +22,7 @@ function App() {
   return (
     <div>
       <Input addUser={addUserHandler} />
-      <section>
-        <List list={userList} />
-      </section>
+      <List list={userList} />
     </div>
   );
 }
