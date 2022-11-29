@@ -9,6 +9,7 @@ const Input = (props) => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
+
     if (newName.trim().length === 0 || newAge.length === 0) {
       setError({
         title: "Invalid Input",
@@ -18,8 +19,8 @@ const Input = (props) => {
     }
     if (newAge < 1) {
       setError({
-        title: "Invalid Input",
-        message: "Please enter a valid name and age (non-empty values)",
+        title: "Invalid Age",
+        message: "Please enter a valid age (> 0)",
       });
       return;
     }
