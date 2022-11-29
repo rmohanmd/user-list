@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Utils/Button";
 import "./Modal.css";
 
 const Modal = (props) => {
@@ -11,9 +12,9 @@ const Modal = (props) => {
         <div className="modal-title">Invalid Input</div>
         <div className="modal-content">
           {props.content}
-          <button className="modal-button" onClick={props.modalClose}>
+          <Button className="modal-button" onClick={props.modalClose}>
             Close
-          </button>
+          </Button>
         </div>
       </div>
     </div>
