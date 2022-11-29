@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Modal from "../Modal/Modal";
+import Card from "../Utils/Card";
 import Button from "../Utils/Button";
+import styles from "./Input.module.css";
 
 const Input = (props) => {
   const [newName, setNewName] = useState("");
@@ -50,25 +52,27 @@ const Input = (props) => {
           modalClose={modalClose}
         />
       )}
-      <form onSubmit={onSubmitHandler}>
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          // value={newName}
-          type="text"
-          onChange={nameInputHandler}
-          minLength="1"
-        />
-        <br />
-        <label htmlFor="age">Age</label>
-        <input
-          id="age"
-          // value={newAge}
-          type="number"
-          onChange={ageInputHandler}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
+      <Card className={styles.input}>
+        <form onSubmit={onSubmitHandler}>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            value={newName}
+            onChange={nameInputHandler}
+          />
+          <br />
+          <label htmlFor="age">Age</label>
+          <input
+            id="age"
+            value={newAge}
+            type="number"
+            step="1"
+            onChange={ageInputHandler}
+          />
+          <Button type="submit">Submit</Button>
+        </form>
+      </Card>
     </section>
   );
 };
